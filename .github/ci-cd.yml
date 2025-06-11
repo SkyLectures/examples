@@ -1,0 +1,21 @@
+name: Python CI
+
+on: [push]
+
+jobs:
+test:
+  runs-on: ubuntu-latest
+
+  steps:
+  - uses: actions/checkout@v3
+
+  - name: Python 설치
+    uses: actions/setup-python@v4
+    with:
+    python-version: '3.10'
+
+  - name: 의존성 설치
+    run: pip install -r requirements.txt
+
+  - name: 테스트 실행
+    run: pytest
