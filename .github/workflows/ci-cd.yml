@@ -1,0 +1,14 @@
+name: Python CI
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on: [push]
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v
+      - name: Python 설치
+        uses: actions/setup-python@v4
+      - name: 의존성 설치
+        run: pip install -r requirements.txt
+      - name: 테스트 실행
+        run: pytest
